@@ -1,0 +1,25 @@
+<div class="studentDetails">
+    <h2>Student details</h2>
+
+    <table class="table">
+        <tr>
+            <td>Student Id</td>
+            <td>{{student.id}}</td>
+        </tr>
+        <tr>
+            <td>Student first Name</td>
+            <td>{{student.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Student firstName</td>
+            <td>{{student.firstName}}</td>
+        </tr>
+        <br>
+        <img src="{{student.retrievedImage}}" height="200" width="200">
+        <br><br>
+
+    </table>
+    <br>
+    <a class="btn btn-small btn-warning" (click)="editStudent()">edit</a>
+    <a class="btn btn-small btn-danger" (click)="deleteStudent()"> delete</a>
+</div>

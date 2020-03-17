@@ -5,10 +5,19 @@ import { DefaultComponent } from './default.component';
 import { RouterModule } from '@angular/router';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatCard, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatSidenavModule, MatCard, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { StudentsComponent } from 'src/app/modules/students/students.component';
-import { StudentsTableComponent } from 'src/app/modules/students/students-table/students-table.component';
 import { TeachersComponent } from 'src/app/modules/teachers/teachers.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddStudentComponent } from 'src/app/modules/students/add-student/add-student.component';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { StudentDetailsComponent } from 'src/app/modules/students/student-details/student-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditStudentComponent } from 'src/app/modules/students/edit-student/edit-student.component';
+import { TeacherDetailsComponent } from 'src/app/modules/teachers/teacher-details/teacher-details.component';
+import { AddTeacherComponent } from 'src/app/modules/teachers/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from 'src/app/modules/teachers/edit-teacher/edit-teacher.component';
+import { NotesComponent } from 'src/app/modules/notes/notes.component';
 
 
 
@@ -18,10 +27,11 @@ import { TeachersComponent } from 'src/app/modules/teachers/teachers.component';
     DefaultComponent,
     DashboardComponent,
     PostsComponent,
-    StudentsComponent,
-    TeachersComponent,
-    StudentsTableComponent
+    StudentsComponent,AddStudentComponent,StudentDetailsComponent,EditStudentComponent,
+    TeachersComponent,TeacherDetailsComponent,AddTeacherComponent,EditTeacherComponent,
+    NotesComponent
   ],
+  entryComponents: [StudentDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -31,9 +41,18 @@ import { TeachersComponent } from 'src/app/modules/teachers/teachers.component';
     MatIconModule,
     MatGridListModule,
     MatMenuModule,
-    MatTableModule,
+    MatTableModule,MatPaginatorModule,MatSortModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,MatInputModule
+  ],
+  exports : [
+    MatTableModule,MatPaginatorModule,MatSortModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatInputModule
   ]
 })
 export class DefaultModule { }

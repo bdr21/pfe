@@ -1,0 +1,51 @@
+<h1>note Admin</h1>
+<div class="search-div">
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey2" placeholder="Select filiere" autocomplete="off" (keyup)="applyFilter2()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey2"  (click)="onSearchClear2()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="search-form-field" floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" placeholder="Select classe" autocomplete="off" (keyup)="applyFilter()">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"  (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<mat-table [dataSource]="listData" matSort>
+    <ng-container matColumnDef="teacherFullName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>teacherFullName </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.teacherFullName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="studentFullName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>studentFullName </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.studentFullName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="value">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>value </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.value}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="classe">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>classe </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.classe}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="filiere">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>filiere </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.filiere}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+        <mat-cell *matCellDef="let note">
+            <button type="button" class="btn btn-primary" (click)="viewNote(note)">Show Details</button>
+            <!--
+        <button type="button" class="btn btn-primary" (click)="editNote(note)">edit</button>
+        <button type="button" class="btn btn-primary" (click)="deleteNote(note)">delete</button>
+            -->
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+<app-footer></app-footer>

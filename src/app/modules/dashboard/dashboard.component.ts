@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientService } from 'src/app/services/httpclient.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private httpClientService : HttpClientService) { }
+  public nOS = "" ;
   ngOnInit() {
+    this.getNOS() ;
   }
 
+  getNOS() {
+    this.httpClientService.getNOS().subscribe(
+      response => this.handleSuccessfulResponse(response),
+    );
+  }
+  handleSuccessfulResponse(response) {
+    localStorage.setItem('nos',response) ;
+    this.nOS = localStorage.getItem('nos') ;
+    console.log(this.nOS);
+  }
 }

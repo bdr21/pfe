@@ -18,11 +18,22 @@ import {
 
 } from '@angular/material';
 import { DefaultModule } from './layouts/default/default.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './services/login.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { Ng2Webstorage } from 'ngx-webstorage';
+import { HttpClientInterceptor } from './login/http-client-interceptor';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +49,18 @@ import { DefaultModule } from './layouts/default/default.module';
     MatMenuModule,
     MatListModule,
     MatDividerModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2Webstorage.forRoot()
   ],
-  providers: [],
+  exports : [
+    FormsModule,
+    ReactiveFormsModule
+
+  ],
+  providers: [ LoginService, {provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

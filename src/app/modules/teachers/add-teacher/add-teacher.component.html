@@ -1,0 +1,23 @@
+<div class="pagewrap">
+    <form #receivedTeacher="ngForm">
+
+        <label for="firstName">firstname</label>
+        <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="teacher.firstName"
+            name="firstName">
+
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" id="lastName" placeholder="type lastName" [(ngModel)]="teacher.lastName"
+            name="lastName">
+
+
+        <div class="form-group" *ngIf="teacher.id == null">
+            <br>
+            <input type="file" (change)="onFileChanged($event)"> max. 50kb
+            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+            <br>
+            <br>
+            <button type="button" class="btn btn-success" (click)="addTeacher()">Save</button>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

@@ -7,7 +7,9 @@ import { MatDividerModule, MatToolbarModule, MatIconModule, MatButtonModule, Mat
 import { FlexLayoutModule } from '@angular/flex-layout'
 import { RouterModule } from '@angular/router';
 import { AreaComponent } from './widgets/area/area.component';
-import { HighchartsChartModule } from 'highcharts-angular'
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { HighchartsChartModule } from 'highcharts-angular'
     RouterModule,
     MatExpansionModule,
     MatSidenavModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    ChartsModule
   ],
   exports: [
     HeaderComponent,

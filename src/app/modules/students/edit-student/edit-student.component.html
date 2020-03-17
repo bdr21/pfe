@@ -1,0 +1,19 @@
+<div class="pagewrap">
+    <p>add student works!</p>
+    <h1>Edit student - {{student.id}}</h1>
+    <form #receivedStudent="ngForm">
+
+        <label for="firstName">firstname</label>
+        <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="student.firstName"
+            name="firstName">
+
+        <label for="firstName">firstName</label>
+        <input type="text" class="form-control" id="firstName" placeholder="type firstName" [(ngModel)]="student.firstName"
+            name="firstName">
+
+        
+            <button type="button" class="btn btn-success" (click)="actualizar(student)">Save</button>
+
+    </form>
+</div>
+<app-footer></app-footer>

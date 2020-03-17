@@ -1,0 +1,29 @@
+<div class="pagewrap">
+    <p>add student works!</p>
+    <h1>{{student.id == null ? 'Add' : 'Edit'}} student - {{student.id}}</h1>
+    <h1>Add student </h1>
+    <form #receivedStudent="ngForm">
+
+        <label for="firstName">firstname</label>
+        <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="student.firstName"
+            name="firstName">
+
+        <label for="teacher">teacher</label>
+        <input type="text" class="form-control" id="teacher" placeholder="first name" name="teacher">
+
+        <label for="firstName">firstName</label>
+        <input type="text" class="form-control" id="firstName" placeholder="type firstName"
+            [(ngModel)]="student.firstName" name="firstName">
+
+
+        <div class="form-group" *ngIf="student.id == null">
+            <br>
+            <input type="file" (change)="onFileChanged($event)"> max. 50kb
+            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+            <br>
+            <br>
+            <button type="button" class="btn btn-success" (click)="addStudent()">Save</button>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

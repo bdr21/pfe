@@ -1,0 +1,40 @@
+<div *ngIf="!isLogged" class="container">
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">Please Sign in</h1>
+    <div class="form-group">
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Username" required="" autofocus="">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control" placeholder="Password" required="">
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" > Sign in</button>
+  </form> 
+</div>
+<div *ngIf="isLogged"><p>you are already in! Click <button (click)="goBackToMain()">here</button>  to go back to main </p>
+</div>
+<!--
+  <div class="container">
+    <form (ngSubmit)="onSubmit()" class="ui form" [hidden]="loginService.checkLogin()">
+      <div class="field">
+        <label for="username">Username</label>
+        <input type="text" required [(ngModel)]="model.username" ngControl="username" placeholder="Username" name="username" required><br>
+      </div>
+  
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" required [(ngModel)]="model.password" ngControl="password" placeholder="password" name="password" required>
+      </div>
+  
+      <button type="submit" class="ui button">Submit</button>
+    </form>
+  
+    <div [hidden]="!loginService.checkLogin()">
+      <h3>Logged In Successfully! </h3>
+      <h2>Welcome back, {{currentUserName}}!</h2>
+    </div>
+  
+  </div>
+  
+-->

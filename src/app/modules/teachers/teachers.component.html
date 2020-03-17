@@ -1,4 +1,65 @@
-<div class="pagewrap">
-    <p>teachers works!</p>
+<h1>teacher Admin</h1>
+<mat-table [dataSource]="listData">
+    <!-- <ng-container matColumnDef="retrievedImage">
+    <mat-header-cell *matHeaderCellDef>retrievedImage Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.retrievedImage}}</mat-cell>
+  </ng-container> -->
+    <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef>firstName </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>email </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef>lastName Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef>gender Name</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let teacher">
+            <button type="button" class="btn btn-primary" (click)="viewTeacher(teacher)">Show Details</button>
+            <!--
+        <button type="button" class="btn btn-primary" (click)="editTeacher(teacher)">edit</button>
+        <button type="button" class="btn btn-primary" (click)="deleteTeacher(teacher)">delete</button>
+            -->
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="container row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let teacher of teachers">
+                    <td>{{teacher.id}}</td>
+                    <td>{{teacher.firstName}}</td>
+                    <!-- <td><button type="button" class="btn btn-primary" (click)="viewteacher(teacher.id)">Show Details</button></td> -->
+                    <td><button type="button" class="btn btn-primary" (click)="viewTeacher(teacher)">Show
+                            Details</button></td>
+                    <!--
+                        <td><button type="button" class="btn btn-primary" (click)="editteacher(teacher)">edit</button></td>
+                    -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        Display teacher Details and Add teacher here.
+        <!-- <app-teacher-details *ngIf="action === 'view'" [teacher]="selectedteacher" (teacherDeletedEvent)="refreshData()"></app-teacher-details> -->
+    </div>
 </div>
 <app-footer></app-footer>

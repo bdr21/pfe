@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { fader , slider} from './route-animations' ;
 
 @Component({
   selector: 'app-default',
   templateUrl: './default.component.html',
-  styleUrls: ['./default.component.scss']
+  styleUrls: ['./default.component.scss'],
+  animations: [
+    //fader,
+    slider
+  ]
 })
 export class DefaultComponent implements OnInit {
 
   sideBarOpen = true;
-  sideBarOpen2 = true;
 
   constructor() { }
 
@@ -18,11 +23,9 @@ export class DefaultComponent implements OnInit {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen ;
   }
-
-  sideBarToggler2() {
-    this.sideBarOpen2 = !this.sideBarOpen2 ;
+  
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
-
-
 
 }
