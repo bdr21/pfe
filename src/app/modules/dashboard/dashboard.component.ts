@@ -10,8 +10,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private httpClientService : HttpClientService) { }
   public nOS = "" ;
+  public nOT = "" ;
+
   ngOnInit() {
     this.getNOS() ;
+    this.getNOT() ;
   }
 
   getNOS() {
@@ -19,9 +22,15 @@ export class DashboardComponent implements OnInit {
       response => this.handleSuccessfulResponse(response),
     );
   }
+  getNOT() {
+    this.httpClientService.getNOT().subscribe(
+      response => this.handleSuccessfulResponse2(response),
+    );
+  }
+  handleSuccessfulResponse2(response) {
+    this.nOT = response ;
+  }
   handleSuccessfulResponse(response) {
-    localStorage.setItem('nos',response) ;
-    this.nOS = localStorage.getItem('nos') ;
-    console.log(this.nOS);
+    this.nOS = response ;
   }
 }

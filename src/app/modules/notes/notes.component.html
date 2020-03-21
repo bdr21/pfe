@@ -1,17 +1,25 @@
 <h1>note Admin</h1>
 <div class="search-div">
-  <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey2" placeholder="Select filiere" autocomplete="off" (keyup)="applyFilter2()">
-    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey2"  (click)="onSearchClear2()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-form-field class="search-form-field" floatLabel="never">
-    <input matInput [(ngModel)]="searchKey" placeholder="Select classe" autocomplete="off" (keyup)="applyFilter()">
-    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey"  (click)="onSearchClear()">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Select classe" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey2" placeholder="Select teacherFullName" autocomplete="off"
+            (keyup)="applyFilter2()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey2" (click)="onSearchClear2()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey3" placeholder="Select studentFullName" autocomplete="off"
+            (keyup)="applyFilter3()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey3" (click)="onSearchClear3()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
 </div>
 <mat-table [dataSource]="listData" matSort>
     <ng-container matColumnDef="teacherFullName">
@@ -20,7 +28,10 @@
     </ng-container>
     <ng-container matColumnDef="studentFullName">
         <mat-header-cell *matHeaderCellDef mat-sort-header>studentFullName </mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.studentFullName}}</mat-cell>
+        <mat-cell *matCellDef="let element">
+            <button (click)="doThisThing(element)" style="background-color: white; border: none ;">
+                {{element.studentFullName}}
+            </button></mat-cell>
     </ng-container>
     <ng-container matColumnDef="value">
         <mat-header-cell *matHeaderCellDef mat-sort-header>value </mat-header-cell>
@@ -35,7 +46,7 @@
         <mat-cell *matCellDef="let element">{{element.filiere}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let note">
             <button type="button" class="btn btn-primary" (click)="viewNote(note)">Show Details</button>
             <!--

@@ -13,6 +13,7 @@ import { EditStudentComponent } from './modules/students/edit-student/edit-stude
 import { TeacherDetailsComponent } from './modules/teachers/teacher-details/teacher-details.component';
 import { AddTeacherComponent } from './modules/teachers/add-teacher/add-teacher.component';
 import { NotesComponent } from './modules/notes/notes.component';
+import { EditTeacherComponent } from './modules/teachers/edit-teacher/edit-teacher.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,10 @@ const routes: Routes = [
       {
         path: 'teachers/add-teacher',
         component: AddTeacherComponent, canActivate: [AuthGuard] , data: { animation: 'isRight' }
+      },
+      {
+        path: 'teachers/edit-teacher',
+        component: EditTeacherComponent, canActivate: [AuthGuard] , data: { animation: 'isLeft' }
       }]
 
   },

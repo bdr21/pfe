@@ -24,10 +24,8 @@
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let teacher">
             <button type="button" class="btn btn-primary" (click)="viewTeacher(teacher)">Show Details</button>
-            <!--
-        <button type="button" class="btn btn-primary" (click)="editTeacher(teacher)">edit</button>
-        <button type="button" class="btn btn-primary" (click)="deleteTeacher(teacher)">delete</button>
-            -->
+            <button type="button" class="btn btn-primary" (click)="editTeacher(teacher)">edit</button>
+            <button type="button" class="btn btn-primary" (click)="deleteTeacher(teacher)">delete</button>
         </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

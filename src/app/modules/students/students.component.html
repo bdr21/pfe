@@ -1,23 +1,27 @@
 <h1>Student Admin</h1>
 <mat-table [dataSource]="listData">
-  <!-- <ng-container matColumnDef="retrievedImage">
-    <mat-header-cell *matHeaderCellDef>retrievedImage Name</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.retrievedImage}}</mat-cell>
-  </ng-container> -->
   <ng-container matColumnDef="firstName">
-    <mat-header-cell *matHeaderCellDef>firstName Name</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>firstName </mat-header-cell>
     <mat-cell *matCellDef="let element">{{element.firstName}}</mat-cell>
   </ng-container>
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef>email Name</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
-  </ng-container>
   <ng-container matColumnDef="lastName">
-    <mat-header-cell *matHeaderCellDef>lastName Name</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>lastName </mat-header-cell>
     <mat-cell *matCellDef="let element">{{element.lastName}}</mat-cell>
   </ng-container>
+  <ng-container matColumnDef="filiere">
+    <mat-header-cell *matHeaderCellDef>filiere </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.filiere}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="classe">
+    <mat-header-cell *matHeaderCellDef>classe </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.classe}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef>age </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.age}}</mat-cell>
+  </ng-container>
   <ng-container matColumnDef="gender">
-    <mat-header-cell *matHeaderCellDef>gender Name</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>gender </mat-header-cell>
     <mat-cell *matCellDef="let element">{{element.gender}}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="actions">

@@ -3,7 +3,7 @@
         <mat-grid-tile role="listitem" style="background-color: aqua;">
             <mat-card class="fgl">
                 <mat-card-header>
-                    <span class="icons"><i class="flaticon-student"></i></span>
+                    <span class="icons"><i mat-card-image class="flaticon-student"></i></span>
 
                     <mat-card-title>number of students</mat-card-title>
                     <mat-card-subtitle>{{nOS}}</mat-card-subtitle>
@@ -13,10 +13,10 @@
         <mat-grid-tile role="listitem" style="background-color: aqua;">
             <mat-card class="fgl">
                 <mat-card-header>
-                    <span class="icons"><i class="flaticon-teacher"></i></span>
+                    <span class="icons"><i mat-card-image class="flaticon-teacher"></i></span>
 
-                    <mat-card-title>John Doe</mat-card-title>
-                    <mat-card-subtitle>Internal</mat-card-subtitle>
+                    <mat-card-title>number of teachers</mat-card-title>
+                    <mat-card-subtitle>{{nOT}}</mat-card-subtitle>
                 </mat-card-header>
             </mat-card>
         </mat-grid-tile>
@@ -34,11 +34,16 @@
     <mat-grid-list role="list" cols="2" rowHeight="fit" style="height: 500px;">
         <mat-grid-tile role="listitem" style="background-color: aqua;">
             <mat-card class="sgl">
-                <mat-card-header>
-                    <mat-card-title class="fsct">Students</mat-card-title>
-                    <button class="menuBTN" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <mat-icon>more_horiz</mat-icon>
-                    </button>
+                <mat-card-header class="container row">
+                    <mat-card-title class="col-sm-5">Students</mat-card-title>
+                    <div class=" d-flex flex-row-reverse col-sm-7" >
+                        <div class=" p-9 " >
+                            <button class="menuBTN"  mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu" >
+                                <mat-icon>more_horiz</mat-icon>
+                            </button>
+                        </div>
+                    </div>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item>
                             <mat-icon>edit</mat-icon>
@@ -54,16 +59,39 @@
                         </button>
                     </mat-menu>
                 </mat-card-header>
+                <br>
+                <br>
                 <app-widget-area></app-widget-area>
             </mat-card>
         </mat-grid-tile>
         <mat-grid-tile role="listitem" style="background-color: aqua;">
             <mat-card class="sgl">
-                <mat-card-header>
-                    <mat-card-title class="ssct">Event Calendar</mat-card-title>
-                    <button class="menuBTN" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                        <mat-icon>more_horiz</mat-icon>
-                    </button>
+                <mat-card-header >
+                    <table>
+                        <tr>
+                            <th colspan="5">
+                                <mat-card-title>Event Calendar</mat-card-title>
+                            </th>
+                            <!-- <th class="flex-spacer"></th> -->
+                            <th>
+                                
+                                <button mat-icon-button [matMenuTriggerFor]="menu"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_horiz</mat-icon>
+                                </button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            
+                            
+                        </tr>
+                    </table>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item>
                             <mat-icon>edit</mat-icon>

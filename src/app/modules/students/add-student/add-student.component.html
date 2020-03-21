@@ -1,20 +1,37 @@
 <div class="pagewrap">
-    <p>add student works!</p>
-    <h1>{{student.id == null ? 'Add' : 'Edit'}} student - {{student.id}}</h1>
     <h1>Add student </h1>
     <form #receivedStudent="ngForm">
 
         <label for="firstName">firstname</label>
         <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="student.firstName"
             name="firstName">
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" id="lastName" placeholder="type lastName" [(ngModel)]="student.lastName"
+            name="lastName">
 
-        <label for="teacher">teacher</label>
-        <input type="text" class="form-control" id="teacher" placeholder="first name" name="teacher">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" placeholder="email" [(ngModel)]="student.email" name="email">
 
-        <label for="firstName">firstName</label>
-        <input type="text" class="form-control" id="firstName" placeholder="type firstName"
-            [(ngModel)]="student.firstName" name="firstName">
+        <label for="age">age</label>
+        <input type="text" class="form-control" id="age" placeholder="age" [(ngModel)]="student.age" name="age">
+        <label for="gender">gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="gender" [(ngModel)]="student.gender"
+            name="gender">
+        <label for="filiere">filiere</label>
+        <input type="text" class="form-control" id="filiere" placeholder="filiere" [(ngModel)]="student.filiere"
+            name="filiere">
+        <label for="classe">classe</label>
+        <input type="text" class="form-control" id="classe" placeholder="classe" [(ngModel)]="student.classe"
+            name="classe">
+        <label for="phone">phone</label>
+        <input type="text" class="form-control" id="phone" placeholder="phone" [(ngModel)]="student.phone" name="phone">
 
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [(ngModel)]="student.birthday" name="birthday" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
         <div class="form-group" *ngIf="student.id == null">
             <br>

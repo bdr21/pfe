@@ -5,7 +5,7 @@ import { DefaultComponent } from './default.component';
 import { RouterModule } from '@angular/router';
 import { PostsComponent } from 'src/app/modules/posts/posts.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule, MatCard, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatSidenavModule, MatCard, MatCardModule, MatGridListModule, MatIconModule, MatMenuModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { StudentsComponent } from 'src/app/modules/students/students.component';
 import { TeachersComponent } from 'src/app/modules/teachers/teachers.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,20 +18,21 @@ import { TeacherDetailsComponent } from 'src/app/modules/teachers/teacher-detail
 import { AddTeacherComponent } from 'src/app/modules/teachers/add-teacher/add-teacher.component';
 import { EditTeacherComponent } from 'src/app/modules/teachers/edit-teacher/edit-teacher.component';
 import { NotesComponent } from 'src/app/modules/notes/notes.component';
+import { DialogBoxComponent } from 'src/app/modules/notes/dialog-box/dialog-box.component';
 
 
 
 
 @NgModule({
   declarations: [
-    DefaultComponent,
+    DefaultComponent, 
     DashboardComponent,
     PostsComponent,
     StudentsComponent,AddStudentComponent,StudentDetailsComponent,EditStudentComponent,
     TeachersComponent,TeacherDetailsComponent,AddTeacherComponent,EditTeacherComponent,
-    NotesComponent
+    NotesComponent,DialogBoxComponent
   ],
-  entryComponents: [StudentDetailsComponent],
+  entryComponents: [DialogBoxComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -49,10 +50,10 @@ import { NotesComponent } from 'src/app/modules/notes/notes.component';
     BrowserAnimationsModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatFormFieldModule,MatInputModule
+    MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule
   ],
   exports : [
-    MatTableModule,MatPaginatorModule,MatSortModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatInputModule
+    MatTableModule,MatPaginatorModule,MatSortModule,ReactiveFormsModule,FormsModule,MatFormFieldModule,MatInputModule,MatDialogModule,MatDatepickerModule,MatNativeDateModule
   ]
 })
 export class DefaultModule { }

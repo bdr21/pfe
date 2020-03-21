@@ -1,4 +1,4 @@
-<div class="studentDetails">
+<div class="pagewrap">
     <h2>Student details</h2>
 
     <table class="table">
@@ -22,4 +22,26 @@
     <br>
     <a class="btn btn-small btn-warning" (click)="editStudent()">edit</a>
     <a class="btn btn-small btn-danger" (click)="deleteStudent()"> delete</a>
+
+<mat-card >
+    <mat-card-header>
+        <mat-card-title>Student details</mat-card-title>
+        <mat-card-subtitle>{{student.lastName}} {{student.firstName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img src="{{student.retrievedImage}}" height="200" width="200">
+    <mat-card-content>Student Id : {{student.id}}</mat-card-content>
+    <mat-card-content>Student first Name : {{student.firstName}}</mat-card-content>
+    <mat-card-content>Student last Name : {{student.lastName}}</mat-card-content>
+    <mat-card-content>Student email : {{student.email}}</mat-card-content>
+    <mat-card-content>Student gender : {{student.gender}}</mat-card-content>
+    <mat-card-content>Student birthday : {{student.birthday | date }}</mat-card-content>
+    <mat-card-content>Student classe : {{student.classe}}</mat-card-content>
+    <mat-card-content>Student filiere : {{student.filiere}}</mat-card-content>
+    <mat-card-content>Student phone : {{student.phone}}</mat-card-content>
+    <mat-card-actions>
+        <button (click)="editStudent()">edit</button>
+        <button (click)="deleteStudent()">delete</button>
+    </mat-card-actions>
+</mat-card>
 </div>
+<app-footer></app-footer>

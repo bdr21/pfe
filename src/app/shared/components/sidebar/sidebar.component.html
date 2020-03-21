@@ -40,17 +40,16 @@
             <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/students/add-student">Add Student</a>
         </mat-expansion-panel>
         <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    uuidjid
-                </mat-panel-title>
+            <mat-expansion-panel-header mat-list-item>
+                <mat-icon style="position: relative; top:4px; font-size: 18px;">home</mat-icon>
+                <span style="font-size: 15px; margin-left: 5px ;margin-top: 5px;">notes</span>
             </mat-expansion-panel-header>
-            <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-            <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">Posts</a>
-            <a mat-list-item routerLinkActive="list-item-active" routerLink="/students">Students</a>
-            <a mat-list-item routerLinkActive="list-item-active" routerLink="/teachers">Teachers</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/notes">notes</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/notes/note-details">note
+                details</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/main/notes/add-note">Add note</a>
         </mat-expansion-panel>
+        
     </mat-accordion>
-    <mat-divider></mat-divider>
 
 </mat-nav-list>

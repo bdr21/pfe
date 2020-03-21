@@ -1,1 +1,18 @@
-<p>edit-teacher works!</p>
+<div class="pagewrap">
+    <h1>Edit teacher - {{teacher.id}}</h1>
+    <form #receivedTeacher="ngForm">
+
+        <label for="firstName">firstname</label>
+        <input type="text" class="form-control" id="firstName" placeholder="first name" [(ngModel)]="teacher.firstName"
+            name="firstName">
+
+        <label for="lastName">lastName</label>
+        <input type="text" class="form-control" id="lastName" placeholder="type lastName" [(ngModel)]="teacher.lastName"
+            name="lastName">
+
+        
+            <button type="button" class="btn btn-success" (click)="actualizar(teacher)">Save</button>
+
+    </form>
+</div>
+<app-footer></app-footer>

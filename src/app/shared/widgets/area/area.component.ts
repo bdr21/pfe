@@ -36,7 +36,7 @@ export class AreaComponent implements OnInit {
       if (student.gender == "f") { this.females++ }
     }
     console.log(this.males);
-    this.pieChartData = [this.males,this.females] ;
+    this.pieChartData = [this.females,this.males] ;
     console.log(this.females);
   }
 

@@ -3,6 +3,7 @@ import { Teacher } from 'src/app/model/Teacher';
 import { MatTableDataSource, MatDialog } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClientService } from 'src/app/services/httpclient.service';
+import { DialogBoxComponent } from '../notes/dialog-box/dialog-box.component';
 
 @Component({
   selector: 'app-teachers',
@@ -56,6 +57,24 @@ export class TeachersComponent implements OnInit {
     localStorage.setItem("id",teacher.id.toString()) ;
     localStorage.setItem("photo",teacher.retrievedImage) ;
     this.router.navigate(['main', 'teachers', 'teacher-details']);
+  }
+
+  editTeacher(teacher: Teacher) {
+    localStorage.setItem("id", teacher.id.toString());
+    this.router.navigate(['main', 'teachers', 'edit-teacher']);
+  }
+
+  deleteTeacher(teacher: Teacher) {
+    localStorage.setItem("id", teacher.id.toString());
+    console.log(teacher.id);
+    this.httpClientService.deleteTeacher(teacher.id).subscribe(
+      (teacher) => {
+        localStorage.setItem("whichComponent","teachers") ;
+        this.refreshData();
+        this.dialog.open(DialogBoxComponent) ;
+      }
+    );
+
   }
 
 }
